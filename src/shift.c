@@ -7,7 +7,7 @@
 #include <ctype.h>
 
 void rate(int n, int atten) {
-    unsigned char adch_tmp = 100 >> (atten / 2);
+    unsigned char adch_tmp = n >> (atten / 2);
     adch_tmp = atten % 2 ? adch_tmp : adch_tmp + (adch_tmp >> 1);
     printf("atten:%3i, result: %i\n", atten, adch_tmp);
 }
