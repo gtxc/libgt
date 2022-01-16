@@ -12,7 +12,7 @@ void rate(int n, int atten) {
     printf("atten:%3i, result: %i\n", atten, adch_tmp);
 }
 
-int main () {
+int main() {
     for (int i = 1; i < 12; ++i) {
         rate(100, i);
     }
