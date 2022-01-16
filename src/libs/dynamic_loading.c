@@ -20,7 +20,7 @@ int main() {
     void *handle = NULL;
     char *error = NULL;
 
-    char *lib_path = "/home/gt/ws/c/lib_gt/cmake-build-debug/libstr_functions_d.so";
+    char *lib_path = "/home/gt/ws/c/libgt/cmake-build-debug/libstr_functions_d.so";
     handle = dlopen(lib_path, RTLD_LAZY);
 
     if (!handle) {
