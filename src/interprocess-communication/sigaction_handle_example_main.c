@@ -13,9 +13,9 @@ void termination_handler(int signum) {
     // before the termination doing some tidying up
     // unlink() function is not necessary, just an example
     struct tmp_file *p;
-    for (p = tmp_file_list; p; p = p->next) {
-        unlink(p->name);
-    }
+//    for (p = tmp_file_list; p; p = p->next) {
+//        unlink(p->name);
+//    }
 }
 
 int main() {

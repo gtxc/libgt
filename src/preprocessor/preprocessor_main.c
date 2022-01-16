@@ -11,7 +11,7 @@
 //#pragma GCC error "GT_error"
 #pragma message "GT_message"
 // this error is informative, code is compiled
-#error *** This is the error***
+//#error *** This is the error***
 
 #define JUST_CHECKING
 #define LIMIT 4
