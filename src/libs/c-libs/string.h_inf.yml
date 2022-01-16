@@ -1,0 +1,35 @@
+memcpy():
+memmove():
+  void *memcpy(void *restrict s1, const void *restrict s2, size_t n);
+  void *memmove(void *s1, const void *s2, size_t n);
+  you cannot assign one array to another, so often programmers use loops to copy one
+  array to another, element by element
+  one exception is using strcp() and strncpy() functions for character arrays
+  the memcpy() and memmove() functions offer you almost the same convenience for other kinds of arrays
+  both of these functions copy n bytes from the location pointed to by s2 to the location pointed to by s1
+  both return the value of s1
+  the difference between the two (as indicated by the keyword restrict)
+  memcpy() is free to assume that there is no overlap between the two memory ranges
+  memmove() function does not make that assumption
+  copying takes place as if all the bytes are first copied to a temporary buffer before being
+  copied to the final destination
+  if you use memcpy() when there are overlapping ranges then the behavior is undefined
+  it might work or might not
+  these functions are designed to work with any data type
+  the tw pointer arguments are type pointer-to-void
+  these functions have no way of knowing what type of data is being copied
+  they use the third argument to indicate the number of bytes to be copied
+  remember, for an array, the number of bytes is not, in general, the number of elements
+  if you copying an array of 10 double values
+  you would use sizeof (double) * 10, not 10, as the third argument
+
+strdup():
+strndup():
+  char *strdup(const char *s);
+  char *strndup(const char *s, size_t n);
+  these functions are used to duplicate a given string
+  a non standard funciton which may not available in standard library in C
+  returns a pointer to a null-terminated byte string, which is a duplicate of the string pointed to by s
+  the memory obtained is done dynamically using malloc and hence it can be freed using free()
+  strndup() is similar to strdup(), but copies at most n bytes
+  if s is longer than n, then only n bytes are copied, and a null terminator is added at the end

@@ -1,0 +1,7 @@
+profiling:
+
+cc -pg -o <program-name> <source_code>
+run executable to generate gmon.out file
+gprof <program-name> gmon.out
+use valgirnd to check memory leaks, do not use for large programs
+valgrind --leak-check=yes ./<program-binary>

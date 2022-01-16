@@ -1,0 +1,120 @@
+stdlib.h general utilities library
+
+exit():
+  forces program to terminate
+  int exit(int status);
+  any open files are automatically closed by the system
+    flushes all output streams
+    closes all open streams
+    closes temporary files created by call to the standard I/O function tmpfile()
+  exit status
+    EXIT_FAILURE (symbolic constant) non-zero
+    EXIT_SUCCESS (symbolic constant) 0
+
+atexit():
+  allows to specify particular functions to be called when exit() executes
+    must register the functions to be called on exit
+  takes an argument a pointer to a function (the function name)
+  int atexit(void (*function)(void));
+  to use the atexit() function
+    pass it the address of the function you want called exit
+    registers this function in a list of functions to be executed when exit() is called
+     up to 32 functins may be registered for execution at program termination
+  the functions registered by atexit() should be type void functions taking no arguments
+    cannot have arguments and cannot return a value
+  typically, the functions invoked, would perform housekeeping tasks
+    updating a program-monitor file
+    resetting environmental variables
+
+abort():
+  causes abnormal program termination
+    raises the SIGABRT signal
+    returns an implementation defined code indicating unsuccessful termination
+  the abort function follows the philosophy of "fail hard and fail often"
+  this function causes a noticeable failure because it will dump core and generate a core file
+  the following may occur
+    file buffers are not flushed
+    streams are not closed
+    temporary files are not deleted
+    functions passed to atexit() are not called
+  will not cause the program to terminate if SIGABRT is being caught by a signal handler passed
+    to signal and the handler does not return
+  void abort(void);
+
+qsort():
+  quick sort method is one of the most effective sorting algorithms
+    particularly for larger array
+    partitions array into ever smaller sizes until the element level is reached
+  first, the array is divided into two parts, with every value in one partition beging less than
+    every value in the other partition
+    process continues util the array is fully sorted
+  the name for the C implementation of the quick sot algorithm is qsort()
+    sorts a data array pointed to by a function pointer (comparison function) passed into the qsort function
+  qsort() and comparison function use void pointers for generality
+    you have to tell qsort() explicitly how large each element of the array is
+    you have to convert its pointer arguments to pointers of the proper type for your application
+  void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
+    the first argument is a pointer to the beginning of the array to be sorted
+      can refer to any kind of array because of use of void pointer
+    the second argument is the number of items to be sorted
+      converts this value to type size_t
+    the third argument is the size of each element
+      because qsort() converts its first argument to a void pointer, qsort() loses track of
+        how big each array element is, to compensate, you must tell qsort() explicitly the
+        size of the data object (this argument)
+    the fourth argument is the address of the function to be used for comparing elements
+      the signature of the comparison function is int (*compar)(const void *, const void *)
+        a pointer to a function that returns an int and that takes two arguments
+          each of which is a pointer to type const void
+            these two pointers point to the items beging compared
+      the comparison function should return following
+        a positive integer if the first item should follow the second value
+        a zero if the two item are the same
+        a negative integer if the second item should follow the first
+
+sprintf():
+  sprintf(char *s, "%i", ..);
+
+atoi():
+  ascii to integer
+  int atoi(const char *s);
+
+atof():
+  ascii to float
+  double atof(const char *s);
+
+atol():
+  ascii to long int
+  long int atol(const char *s);
+
+strtod():
+  double strtod(const char *s, char **s_end);
+
+rand():
+  int rand(void);
+
+srand():
+  void srand(unsigned seed);
+  standard practice is to use the result of a call to srand(time(0)) as the seed
+    time() returns a time_t value which varies every time and hence the pseudo-random number
+    varies for every program call
+    example:
+      srand(time(0));
+      rand();
+
+system():
+  int system(const char *command);
+  passes the command name or program name specified as an argument to the host environment
+    to be executed by the command processor and returns after the command has been completed
+    allows you to xecute programs on the console/shell
+  returns -1 on eroor
+
+getenv():
+  char *getenv(const char *name);
+  an 'environment' is an implementation-defined list of name/value pairs maintained by the operating system
+  the operating system defines specific meanings to 'environment variables'
+  not all implementations necessarily define same set of environment variables
+    they must define same meaning to whatever environment variables they have
+  the function getenv() searches for the environment string that is passed in
+    returns a null-terminated string with the value of the requested environment variable,
+    or NULL if that environment variable does not exist

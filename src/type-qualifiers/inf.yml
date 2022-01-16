@@ -1,0 +1,7 @@
+const:
+  read only
+volatile:
+  opposite of const, value could change unexpectedly
+restrict:
+  compiler can choose to ignore, used in pointer declarations,
+  tells the compiler that a particular pointer is the only reference to the value

@@ -1,0 +1,30 @@
+used to describe the features of a variable/function:
+  scope
+  visibility
+  life-time
+
+local variables have automatic storage duration by default
+
+in C++ auto keyword has different purpose
+
+# +----------+-------------------------+----------------------------+--------------------------+
+# |  Storage |       Declaration       |            Scope           |         Lifetime         |
+# |   Class  |         Location        |        (Visibility)        |      (Availability)      |
+# +----------+-------------------------+----------------------------+--------------------------+
+# |   auto   | Inside a function/block |         Within the         | Until the function/block |
+# |          |                         |       function/block       |         completes        |
+# +----------+-------------------------+----------------------------+--------------------------+
+# | register | Inside a function/block |         Within the         | Until the function/block |
+# |          |                         |       function/block       |         completes        |
+# +----------+-------------------------+----------------------------+--------------------------+
+# |          |                         |   Entire file plus other   |     Until the program    |
+# |  extern  |  Outside all functions  |  files where the variable  |        terminates        |
+# |          |                         |    is declared as extern   |                          |
+# +----------+-------------------------+----------------------------+--------------------------+
+# |  static  | Inside a function/block |         Within the         |     Until the program    |
+# |  (local) |                         |       function/block       |        terminates        |
+# +----------+-------------------------+----------------------------+--------------------------+
+# |  static  |  Outside all functions  | Entire file in which it is |     Until the program    |
+# | (global) |                         |          declared          |        terminates        |
+# +----------+-------------------------+----------------------------+--------------------------+
+

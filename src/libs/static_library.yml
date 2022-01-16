@@ -1,0 +1,29 @@
+static library cc commands:
+
+create .h file includes function prototypes and necessary headers
+do not forget to write include guards
+create .c file includes function implementations
+cc -c main.c -o lib.o
+generates .o file for lib
+ar rcs <name_the_lib>.a lib.o
+generates lib.a file
+ar -t lib.a
+to see object files contained in static library
+
+
+for the driver program
+cc -I <path directory of lib> -c main.c main.o
+cc -o main main.o <lib>.a
+
+
+linking at compile time
+
+interface expressed in a header file
+implementation expressed in a .c file
+
+copies functions to the executable file
+
+creates larger binary files
+more time consuming to fix bugs
+
+runs faster

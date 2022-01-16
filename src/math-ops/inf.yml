@@ -1,0 +1,5 @@
+inline funcs:
+  inline void random_func(); used in single file programs
+
+
+_Noreturn funcs : contains exit();

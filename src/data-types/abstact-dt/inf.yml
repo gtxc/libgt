@@ -1,0 +1,90 @@
+an Abstract Data type (ADT) is a type whose behavior is defined by aa set of value and a set of operations
+a contract for a type of data structure
+
+arrays vs linked lists; fixed vs dynamic
+
+linked list:
+  linear data structure
+  can be used to store a lot of different kinds of data
+  used when the data elements to be represented in the data structure is unpredictable
+  can be maintained in sorted order by inserting each new element at the proper point in the list
+  elements are not stored in contiguous location
+
+stack:
+  supports recursive function calls
+  used to store data in memory
+  call stack is usefull when debugging
+  used by compilers in the process of evaluating expressions and generating machine language code
+  can be used when implementing page visited history in a web browser
+   can be used as an "undo" operation in a text editor
+   can be used to implement post-fix notation in a computer language (order of operations and operands)
+   used in many algorithms like Tower of Hanoi, tree traversals, stock span problem, histogram problem
+   an application to reverse a string
+
+queue:
+  some computers have only single processor, so only one user at a time may be serviced
+    entries for the other user are placed in a queue
+      each entry gradually advances to the front of the queue as users recieve service
+      the entry at the front of the queue is the next to recieve service
+    used to support print spooling
+    information packets wait in queues in computer networks
+    basically, when a resource is shared among multiple consumers, queues are often utilized
+  advantages:
+    data queues are a fast method of inter-process communication
+    data queues free up jobs from performing some work; can led to a better response time and an overall
+      improvment in system performance
+    data queues serve as the fastest form of asynchronous communication between two different tasks; there is
+      less overhead than with database files and data areas
+  flexibility:
+    queues are flexible, requiring no communications programming
+    the programmer does not need any knowledge of inter-process communication
+    data queues allow computer to handle multiple tasks
+    the queue can remain active when there are no enteries and ready to process data entries when necessary
+
+binary tree:
+  non-linear, two-dimensional data structure
+  trees whose nodes contain a maximum of two links are called binary trees
+  the root node is the first node in a tree
+  each link in the root node refers to a child
+  the children of a node are called siblings
+  a node with no children is called a leaf node
+  used in search, game logic, auto-complete tasks, and graphics
+  the most common use of a binary tree is a binary search tree; where data is constantly entering/leaving
+    map and set objects in many libraries
+  binary space partition algorithm; used in almost every 3D video game to determine what objects need to
+    be rendered
+  used in many high-bancwidth routers for storing router-tables
+  different form of binary trees used by compilers to parse expressions
+  data compression algorithms
+  database problems like indexing
+  a binary search tree is a linked structure that incorporates the binary search algorithm
+    ordered data structure
+    allows for fast lookup, addition and removal of items
+  a fundamental data structure usd to construct more abstract data structures such as sets, multisets, and
+    associative arrays
+  has the following properties:
+    values in any left subtree are less than the value in its parent node
+    values in any right subtree are greater than the value in its parent node
+    is considered balanced if every level of the tree is fully filled with the exception of the last level
+      on the last level, the tree is filled left to right
+    a perfect BST is one in which it is both full and complete
+      all child nodes are on the same level and each node has a left and a tight child node
+    a BST has no duplicate node values
+      an attempt to insert a duplicate value will be recognized when creating the tree
+        a duplicate will follow the same "go left" or "go right" decisions on each comparison as the original
+          value did
+        the duplicate will eventually be compared with a node in the tree containing the same value
+          duplicate value is discarded at this point
+    a node can only be inserted as a leaf node in a binary serch tree
+
+  searching a binary tree for a value that matches a key value is fast
+  if the tree is tightly packed, each level contains about twice as many elements as the previous level
+  suppose you wnat to find an item
+    if the item precedes the root item, you need to search only the left half of the tree
+    if the target follows the root item, you need to search only the right subtree of the root node
+    one comparison eliminates half the tree
+  suppose you search the left half
+    means comparing the target with the item in the left child
+    if the target precedes the left-child item, you need to search only the left half of its descendants,and so on
+      each comparison cuts the number of potential matches in half
+  a BST combines a linked structure with binary search efficiency

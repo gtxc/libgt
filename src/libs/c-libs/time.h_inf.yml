@@ -1,0 +1,35 @@
+clock():
+  clock_t clocK(void);
+  amount of processor time used by the program
+  returns -1 if any error occurs
+  example:
+    clock_t start = 0, end = 0;
+    double cpu_time 0.0;
+    stat = clock();
+    # execute the process for which you want the processor time...
+    end = clock();
+    cpu_time = (double)(end start) / CLOCKS_PER_SEC; // processor time in seconds
+time():
+  time_t time(time_t *timer);
+  returns calendar time of type time_t
+  calender time is the current time usually measured in seconds since a fixed time on a particular date
+  the fixed time and date is often 00:00:00 GMT on January 1, 1970
+  if the argument is not NULL, the current calendar time is also strored in timer
+  type time_t is defined in the headerfile and is often equivalent to type long
+ctime(), asctime():
+  char *ctime(time_t const *timer);
+  char *asctime(struct tm const *tm_ptr);
+  return current date and day of time as function value
+gmtime():
+  struct tm *gmtime(time_t const *timer);
+  converts time_t value into sruct tm coordinated universal time (UTC)
+localtime():
+  struct tm *localtime(time_t const *timer);
+  returns structure of type struct tm
+  can be passed as an argument to asctime() function
+difftime():
+  double difftime(time_t tm1, time_t tm2);
+  to calculate the elapsed time in seconds between two successive time_t values returned by time() use difftime()
+mktime():
+  time_t mktime(struct tm *ptime);
+  use to determine the day of the week for a given date

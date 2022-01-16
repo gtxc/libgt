@@ -1,0 +1,6 @@
+str = malloc...
+calloc(75, sizeof (int))
+realloc(str, 25);
+
+
+void pointers

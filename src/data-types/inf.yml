@@ -1,0 +1,36 @@
+define:
+  no check for type of the data
+
+
+enums:
+  first declare
+    enum primay_color {red, yellow, blue};
+    and use it
+    enum primary_color colors1, colors2;
+    colors1 and colors2 can take one of the colors in primary_color
+    color1 = red; // color1 is actually equal to 0
+    color2 = blue; // color2 is actually equal to 2
+    color2 = 12; // error incompatible types when assigning to type 'enum primary_color'
+
+  enum direction {up, down, left = 10, right}
+    up -> 0
+    down -> 1
+    left -> 10
+    right -> 11
+
+  enum month {January, February, March, April, May, June, July, August, September, October, November, December}
+
+
+  char *c = "sadfasd" -> read only
+  char c[] = "sdfasdf" -> modifiable
+
+_Bool : 0 | 1
+  long var = 123L; var = 123e+7;
+  float var = 123f;
+
+stddef.h:
+  ptrdiff_t : subtracting two pointers
+  size_t : type of integer produced by sizeof operator
+
+limits.h:
+stdbool.h:

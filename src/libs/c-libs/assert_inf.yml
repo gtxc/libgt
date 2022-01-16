@@ -1,0 +1,39 @@
+assert library is designed to help with debugging programs
+  defined in assert.h
+the assert() macro enables you to insert test of arbitrary expressions in your program
+  a run-time check
+takes as its argument an integer expression
+  the argument is a relational or logical expression
+the program will be terminated with a diagnostic message if a specified expression is false during execution
+  error message is written to the standard error stream (stderr)
+    displays the test that failed, the name of the file containing the test, and a line number
+  abort() functions is invoked which terminates the program
+assertions are often used for critical conditions in a program
+  if certain conditions are not met, disaster will occur
+  you would want to be sure that the program does not continue when this error occurs
+assertions are not meant as a substitute fr error handling during normal runtime conditions
+  use should be limited to finding logic errors
+assert(some_variable < some_count);
+
+switching off assertions
+  assertions can be switched off by defining the symbol NDEBUG before the #include directive for assert.h
+    #define NDEBUG
+    this code snippet will cause all assert() macros in your code to be ignored
+    #undef NDEBUG // switch on assertions
+
+compile-time assertions
+  C11 added a feature that does a compile-time check
+    can cause a program not to compile
+  the assert.h header makes static assert an alias for the C keyword _Static_assert
+    more compatible with C++, which uses static_assert as keyword for this feature
+  static_assert is treated as a declaration statement
+    unlike most kinds of C statements, it can appear either in a function or external to a function
+  the static_assert() macro enables you to output an error message during compilation
+    message includes a string literal that you specify
+      whether or not the output is produced depends on the value of an expression that is a compile time constant
+    takes two arguments
+      first is a constant integer expression
+      second is a string
+      static_assert(constant_expression, string_literal);
+      when the constant expression evaluates o zero, compilation stops and the error message is output
+        enables to build checks into code about implementation

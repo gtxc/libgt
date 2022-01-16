@@ -1,0 +1,16 @@
+position in a file:
+  ftell()
+  fgetpos()
+  fsetpos(fp, fpos_t)
+  fpos_t use this data type
+
+search funcs:
+  strchr()
+  strstr()
+  fseek(fp, 7(seven bytes move), SEEK_SET)
+  SEEK_SET
+  SEEK_CUR
+  SEEK_END
+
+analyzing:
+  islower(), isupper(), isalpha(), isdigit() ...

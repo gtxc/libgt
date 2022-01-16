@@ -1,0 +1,16 @@
+library types:
+
+  static libraries:
+    uses static linking (compile-time, becomes part of the application)
+    each process gets its own copy of the code and data
+    known as an archive
+
+  shared objects:
+    dynamically linked at run time
+    shared objects are not included into the executable component but are tied to the execution
+    code shared, data is specific to each process
+
+
+
+  there is also the concept of a dynamically loaded/unloaded shared object library that is linked during
+  execution using the dynamically linking loader system functions

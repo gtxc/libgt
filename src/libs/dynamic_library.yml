@@ -1,0 +1,89 @@
+dynamic library (shared object) cc commands:
+
+  create .h file includes function prototypes and necessary headers
+  do not forget to write include guards
+  create .c file includes function implementations
+
+  cc -g -fPIC(position independent code) lib.c -shared -o lib.so
+
+  after implementing driver program
+  cc -I <path of the lib> -c main.c -o main.o
+  cc -o main main.o -L <path of the li> -l <name of the lib without extension>
+
+  before run the program, export path
+  export LD_LIBRARY_PATH=<absolute path of the lib>:$LD_LIBRARY_PATH
+
+
+
+  used in runtime, does not require the code to be copied
+
+  libraries are loaded into memory by programs when they start
+
+  much smaller executable size
+
+  trades off more efficient use of the disk and a quicker linking phase
+  for a small runtime penalty
+
+  provides better I/O and swap space utilization and is sparing of physical memory,
+  improving overall system throughput
+
+  use ldd to list all of the shared object for a given binary/executable
+  ldd <name_of_executable>
+
+
+procedure to create shared object:
+
+  foo.h
+  #ifndef foo_h__
+  #define foo_h__
+
+  extern void foo(void);
+
+  #endif  // foo_h__
+
+
+  foo.c
+  #include <stdio.h>
+
+  void foo(void)
+  {
+    puts("Hello, I am a shared library");
+  }
+
+
+
+  main.c
+  #include <stdio.h>
+  #include "foo.h"
+
+  int main(void)
+  {
+    puts("This is a shared library test...");
+    foo();
+    return 0;
+  }
+
+  gcc -c -Wall -Werror -fpic foo.c
+
+  gcc -shared -o libfoo.so foo.o
+
+  gcc -Wall -o test main.c -lfoo
+  /usr/bin/ld: cannot find -lfoo
+  collect2: ld returned 1 exit status
+
+
+  gcc -L/home/username/foo -Wall -o test main.c -lfoo
+
+  ./test
+  # ./test: error while loading shared libraries: libfoo.so: cannot open shared object file: No such file or directory
+
+  echo $LD_LIBRARY_PATH
+
+  LD_LIBRARY_PATH=/home/username/foo:$LD_LIBRARY_PATH
+  ./test
+  # ./test: error while loading shared libraries: libfoo.so: cannot open shared object file: No such file or directory
+
+  export LD_LIBRARY_PATH=/home/username/foo:$LD_LIBRARY_PATH
+  ./test
+  This is a shared library test...
+  Hello, I am a shared library
