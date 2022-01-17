@@ -33,6 +33,8 @@ void print(const vector<string>& v) {
     cout << endl;
 }
 
+// if you need to use default argument for overloaded functions
+// use default argument for one of the functions
 int main() {
     print(100);
     print('A'); // character is always promoted to int, should print 65 ASCII A
