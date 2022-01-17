@@ -7,7 +7,18 @@
 #include <stdlib.h>
 #include <time.h>
 
+void swap(int *a, int *b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
 int main() {
+    int a = 10;
+    int b = 20;
+    swap(&a, &b);
+    printf("a: %i, b: %i\n", a, b);
+
     puts("This is the C file");
 
     srandom(time(NULL));
