@@ -11,6 +11,8 @@
 class Player {
     // attributes
 private:
+    // no initialization allowed here. Do it in implementation file (Player.cpp).
+    static int num_players;
     std::string name;
     int health;
     // methods
@@ -22,6 +24,8 @@ public:
     void set_health(int health_val);
     Player(const Player &source);
     ~Player();
+    // to access static attributes, define static functions.
+    static int get_num_players();
 };
 
 #endif //LIBGT_PLAYER_H

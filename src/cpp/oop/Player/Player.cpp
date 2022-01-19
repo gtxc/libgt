@@ -6,6 +6,8 @@
 #include <iostream>
 #include "Player.h"
 
+int Player::num_players {0};
+
 std::string Player::get_name() {
     return this->name;
 }
@@ -23,7 +25,10 @@ void Player::set_health(const int health_val) {
 }
 
 Player::Player(std::string name_val, int health_val)
-    : name {std::move(name_val)}, health {health_val} {}
+    : name {std::move(name_val)}, health {health_val} {
+        // increment static variable in constructor
+        ++num_players;
+}
 
 Player::Player(const Player &source)
 //    : name {source.name}, health {source.health} {
@@ -34,4 +39,11 @@ Player::Player(const Player &source)
 
 Player::~Player() {
     std::cout << "Destructor called for " << this->get_name() << std::endl;
+    // decrement static attributes here
+    --num_players;
+}
+
+// no need to use static here
+int Player::get_num_players() {
+    return num_players;
 }
