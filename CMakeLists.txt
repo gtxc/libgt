@@ -68,3 +68,4 @@ target_link_libraries(thread_cond_variables_main pthread)
 target_link_libraries(thread_mix_example_main pthread)
 
 target_sources(player_main PUBLIC src/cpp/oop/Player/Player.cpp)
+target_sources(movies_main PUBLIC src/cpp/oop/movies/Movie.cpp src/cpp/oop/movies/Movies.cpp)
