@@ -6,7 +6,7 @@ int oddOccurrencesInArray(const int A[], int N) {
         result ^= A[i];
         printf("result = %i\n", result);
     }
-    printf("\n 2 ^ 3 = %i\n", 1 ^ 2);
+    printf("\n 2 ^ 3 = %i\n", 0x3 ^ 3);
     return result;
 }
 
