@@ -10,9 +10,7 @@ int binarygap(int N) {
             max_gap = gap > max_gap ? gap : max_gap;
             gap = 0;
         } else {
-            if (one_found) {
-                ++gap;
-            }
+            gap = one_found ? gap+1 : gap;
         }
         N >>= 1;
     }
@@ -20,6 +18,6 @@ int binarygap(int N) {
 }
 
 int main() {
-    printf("%i\n", binarygap(32));
+    printf("%i\n", binarygap(1376796946));
     return 0;
 }
