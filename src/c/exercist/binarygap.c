@@ -1,20 +1,25 @@
 #include <stdio.h>
 
 int binarygap(int N) {
-    int zeroCount = 0, maxCount = 0;
+    int gap = 0;
+    int max_gap = 0;
+    int one_found = 0;
     while (N) {
         if (N & 1) {
-            maxCount = zeroCount > maxCount ? zeroCount : maxCount;
-            zeroCount = 0;
+            one_found = 1;
+            max_gap = gap > max_gap ? gap : max_gap;
+            gap = 0;
         } else {
-            ++zeroCount;
+            if (one_found) {
+                ++gap;
+            }
         }
         N >>= 1;
     }
-    return maxCount;
+    return max_gap;
 }
 
 int main() {
-    printf("%i\n", binarygap(1234));
+    printf("%i\n", binarygap(32));
     return 0;
 }
