@@ -28,6 +28,9 @@ int solution(int A[], int N) {
         if (min_dif > dif) {
             min_dif = dif;
         }
+        if (min_dif == 0) {
+            break;
+        }
     }
     return min_dif;
 }
