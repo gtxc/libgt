@@ -17,7 +17,7 @@ void test(int arr[]) {
 }
 
 // use const to not modify passed value accidentally
-void print_int_array(const int arr[], size_t size) {
+void print_int_array(const int arr[], int size) {
     for (int i = 0; i < size; ++i) {
         cout << arr[i] << " ";
     }

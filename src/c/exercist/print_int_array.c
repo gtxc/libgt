@@ -5,9 +5,9 @@
 
 #include <stdio.h>
 
-void print_int_array(int arr[], size_t size) {
+void print_int_array(int arr[], int size) {
     printf("[");
-    for (unsigned long i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i) {
         if (i == size - 1) printf("%i", arr[i]);
         else printf("%i, ", arr[i]);
     }
