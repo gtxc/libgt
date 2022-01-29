@@ -1,4 +1,8 @@
 /*
+ * Created by gt on 11/17/21 - 1:44 PM.
+ * Copyright (c) 2021 GTXC. All rights reserved.
+ *
+
     You are given an implementation of a function:
 
         int solution(int A[], int N, int K);

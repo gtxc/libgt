@@ -1,4 +1,8 @@
 /*
+ * Created by gt on 11/17/21 - 1:44 PM.
+ * Copyright (c) 2021 GTXC. All rights reserved.
+ *
+
     In an even word, each letter occurs an even number of times.
 
     Write a function solution that, given a string S consisting of N characters, return the

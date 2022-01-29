@@ -1,4 +1,8 @@
 /*
+ * Created by gt on 11/17/21 - 1:44 PM.
+ * Copyright (c) 2021 GTXC. All rights reserved.
+ *
+
     You are given a string consisting of digits. Find the biggest two-digit value that is
     a consistent fragment of the given string.
 

@@ -1,4 +1,8 @@
 /*
+ * Created by gt on 11/17/21 - 1:44 PM.
+ * Copyright (c) 2021 GTXC. All rights reserved.
+ *
+
     Write a function solution that, given an integer N, returns the maximum possible value
     obtainable by deleting one '5' digit from the decimal representation of N. It is
     guaranteed that N will contain at least one '5' digit.

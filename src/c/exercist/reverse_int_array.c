@@ -1,3 +1,8 @@
+/*
+ * Created by gt on 11/17/21 - 1:44 PM.
+ * Copyright (c) 2021 GTXC. All rights reserved.
+ */
+
 #include <stdio.h>
 
 int  *reverseIntArray(int A[], int n) {
