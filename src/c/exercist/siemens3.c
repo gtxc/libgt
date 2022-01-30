@@ -74,7 +74,8 @@ int solution(char *S) {
 }
 
 int main() {
-    char *S = "0081";
-    printf("%i\n", solution(S));
+    printf("%i\n", solution("23"));
+    printf("%i\n", solution("0081"));
+    printf("%i\n", solution("022"));
     return 0;
 }
