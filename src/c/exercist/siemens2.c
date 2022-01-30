@@ -14,9 +14,11 @@
  * Examples:
  *
  *  1. Given S = "?ab??a", the function should return "aabbaa".
+ *
  *  2. Given S = "bab??a", the function should return "NO".
+ *
  *  3. Given S = "?a?", the function may return "aaa". It may also return "zaz", among other
- *  possible answers.
+ *     possible answers.
  *
  * Assume that:
  *
