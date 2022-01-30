@@ -75,7 +75,7 @@ void print_int_array(int arr[], int size) {
 }
 
 struct Results {
-    int * A;
+    int *A;
     int M; // Length of the array
 };
 
