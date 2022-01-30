@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.21)
 project(libgt)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_C_STANDARD 99)
 add_compile_options(-Wall -Wextra)
 # -Wall     : Enable most warning messages.
 # -Wextra   : Print extra (possibly unwanted) warnings.
