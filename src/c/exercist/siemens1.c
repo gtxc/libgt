@@ -19,10 +19,10 @@
  * Examples:
  *
  *  1. Given S = "azABaabza", the function should return 5. The shortest balanced fragment of
- *  S is "ABaab".
+ *     S is "ABaab".
  *
  *  2. Given S = "AcZCbaBz", the function should return 8. The shortest balanced fragment is
- *  the whole string.
+ *     the whole string.
  *
  *  3. Given S = "abcdefghijklmnopqrstuvwxvz", the function should return -1.
  *
