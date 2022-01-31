@@ -38,6 +38,7 @@ char * solution(char *S) {
     int length_S = (int) strlen(S);
     char *tmp = S;
     char *rev = malloc(sizeof *rev * length_S);
+    rev[length_S] = '\0';
 
     for (int i = 0; i < length_S; ++i) {
         rev[length_S - 1 - i] = tmp[i];
@@ -49,11 +50,11 @@ char * solution(char *S) {
         }
     }
     char *revrev = malloc(sizeof *revrev * length_S);
+    revrev[length_S] = '\0';
+
     for (int i = 0; i < length_S; ++i) {
         revrev[length_S - 1 - i] = rev[i];
     }
-    printf("%s\n", rev);
-    printf("%s\n", revrev);
     char *result = malloc(sizeof *result * length_S);
     strcpy(result, rev);
     if (strcmp(rev, revrev) != 0) {
@@ -63,15 +64,15 @@ char * solution(char *S) {
     free(revrev);
     rev = NULL;
     revrev = NULL;
-    printf("%i\n", length_S);
-    printf("%s\n", result);
-
     return result;
 }
 
 int main() {
-//    char *S = "?ab??a";
-    char *S = "?a?";
-    printf("result: %s\n", solution(S));
+    printf("result: %s\n", solution("?a?"));
+    printf("result: %s\n", solution("?ab??a"));
+    printf("result: %s\n", solution("bab??a"));
+    printf("result: %s\n", solution("?a?"));
+    printf("result: %s\n", solution("?z??"));
+    printf("result: %s\n", solution("??"));
     return 0;
 }
