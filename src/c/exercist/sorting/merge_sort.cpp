@@ -14,36 +14,58 @@
  *
  */
 
-#include <stdio.h>
+#include <iostream>
 
-void merge(int a[],int low,int mid ,int high)
-{
-    int b[20]; //same size of a[]
-    int i,j,k;
-    i=low,j=mid+1,k=low;
-    while(i<=mid && j<=high)
-    {
-        if(a[i]<=a[j])
-            b[k++]=a[i++];
-        else
-            b[k++]=a[j++]; //copying the elements
+using namespace std;
+
+void print_int_array(int *A, int size) {
+    cout << "[";
+    for (int i = 0; i < size; ++i) {
+        if (i == size-1) cout << A[i];
+        else cout << A[i] << ", ";
     }
-    while (i<=mid)
-        b[k++]=a[i++];
-    while
-            (j<=high) b[k++]=a[j++];
-    for (k=low;k<=high;k++)
-        a[k]=b[k];
+    cout << "]" << endl;
 }
 
-// merge sort function
-void mergesort(int a[],int low,int high)
-{
-    int mid;
-    if(low>=high)
+void merge(int A[], int low, int mid, int high) {
+    int tmp[high];
+    int i = low;
+    int j = mid+1;
+    int k = low;
+    while (i <= mid && j <= high) {
+        if (A[i] <= A[j]) {
+            tmp[k++] = A[i++];
+        } else {
+            tmp[k++] = A[j++];
+        }
+    }
+    while (i <= mid) {
+        tmp[k++] = A[i++];
+    }
+    while (j <= high) {
+        tmp[k++] = A[j++];
+    }
+    for (k = low; k <= high; ++k) {
+        A[k] = tmp[k];
+    }
+}
+
+void divide(int A[], int low, int high) {
+    if (low >= high) {
         return;
-    mid=(low+high)/2;
-    mergesort(a,low,mid);
-    mergesort(a,mid+1,high);
-    merge(a,low,mid,high);
+    }
+    int mid = (low + high) / 2;
+    divide(A, low, mid);
+    divide(A, mid+1, high);
+    merge(A, low, mid, high);
+}
+
+
+int main() {
+    int A[] = {3,2,1,5,8,0,7};
+    int size = sizeof A / sizeof A[0];
+    print_int_array(A, size);
+    divide(A, 0, size);
+    print_int_array(A, size);
+    return 0;
 }
