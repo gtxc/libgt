@@ -42,11 +42,18 @@
 
 int solution(char *S) {
     int fragment = 1;
+    int upper = 1;
     int length_S = (int) strlen(S);
-    for (int i = 1; i < length_S; ++i) {
-    int balance = (int) S[i-1];
+
+    for (int i = 0; i < length_S; ++i) {
+//        int balance = S[i-1] > 90 ? S[i-1] - 32 : S[i-1];
+        int balance = 0;
         for (int j = i; j < length_S; ++j) {
-            balance ^= S[j];
+            char c = S[j];
+            if (c > 90) {
+                c -= 32;
+            }
+            balance ^= c;
             ++fragment;
             if (balance == 0) {
                 return fragment;
@@ -58,8 +65,10 @@ int solution(char *S) {
 }
 
 int main() {
-    char *S = "AcZCbaBz";
-    printf("%i\n", solution(S));
+    printf("%i\n", solution("azABaabza"));
+    printf("%i\n", solution("AcZCbaBz"));
+    printf("%i\n", solution("abcdefghijklmnopqrstuvwxvz"));
+    printf("%i\n", 66 ^ 67 ^ 68 ^ 69);
     return 0;
 
 
