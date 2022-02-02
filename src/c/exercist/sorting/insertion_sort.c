@@ -35,34 +35,34 @@
 
 typedef unsigned long int u_long;
 
-void print_int_array(int arr[], size_t size) {
+void print_int_array(int A[], size_t size) {
     printf("[");
     for (u_long i = 0; i < size; ++i) {
-        if (i == size - 1) printf("%i", arr[i]);
-        else printf("%i, ", arr[i]);
+        if (i == size - 1) printf("%i", A[i]);
+        else printf("%i, ", A[i]);
     }
     printf("]\n");
 }
 
-void insertion_sort(int arr[], size_t size) {
+void insertion_sort(int A[], size_t size) {
     for (u_long i = 1; i < size; ++i) {
         u_long j;
-        int tmp = arr[i];
-        for (j = i-1; j >= 0 && tmp < arr[j]; --j) {
-            arr[j+1] = arr[j];
+        int tmp = A[i];
+        for (j = i-1; j >= 0 && tmp < A[j]; --j) {
+            A[j + 1] = A[j];
         }
-        arr[j + 1] = tmp;
+        A[j + 1] = tmp;
         // echo each step
         printf("%li. step: ", i);
-        print_int_array(arr, size);
+        print_int_array(A, size);
     }
 }
 
 int main() {
-    int arr[] = {22, 27, 16, 2, 18, 6};
-//    int arr[] = {7,3,5,8,2,9,4,15,6};
-    size_t size_arr = sizeof arr / sizeof arr[0];
-    print_int_array(arr, size_arr);
-    insertion_sort(arr, size_arr);
+    int A[] = {22, 27, 16, 2, 18, 6};
+//    int A[] = {7,3,5,8,2,9,4,15,6};
+    size_t size_arr = sizeof A / sizeof A[0];
+    print_int_array(A, size_arr);
+    insertion_sort(A, size_arr);
     return 0;
 }
