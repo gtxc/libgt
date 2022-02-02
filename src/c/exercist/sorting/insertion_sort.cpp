@@ -31,29 +31,29 @@
  *      4. step: [2, 3, 5, 7, 8, 9, 4, 15, 6]
  */
 
-#include <stdio.h>
+#include <iostream>
 
-typedef unsigned long int u_long;
+using namespace std;
 
-void print_int_array(int A[], size_t size) {
-    printf("[");
-    for (u_long i = 0; i < size; ++i) {
-        if (i == size - 1) printf("%i", A[i]);
-        else printf("%i, ", A[i]);
+void print_int_array(int *A, int size) {
+    cout << "[";
+    for (int i = 0; i < size; ++i) {
+        if (i == size-1) cout << A[i];
+        else cout << A[i] << ", ";
     }
-    printf("]\n");
+    cout << "]" << endl;
 }
 
-void insertion_sort(int A[], size_t size) {
-    for (u_long i = 1; i < size; ++i) {
-        u_long j;
+void insertion_sort(int A[], int size) {
+    for (int i = 1; i < size; ++i) {
+        int j;
         int tmp = A[i];
         for (j = i-1; j >= 0 && tmp < A[j]; --j) {
             A[j + 1] = A[j];
         }
         A[j + 1] = tmp;
         // echo each step
-        printf("%li. step: ", i);
+        cout << i << ". step: ";
         print_int_array(A, size);
     }
 }
@@ -61,8 +61,8 @@ void insertion_sort(int A[], size_t size) {
 int main() {
     int A[] = {22, 27, 16, 2, 18, 6};
 //    int A[] = {7,3,5,8,2,9,4,15,6};
-    size_t size_arr = sizeof A / sizeof A[0];
-    print_int_array(A, size_arr);
-    insertion_sort(A, size_arr);
+    int size = sizeof A / sizeof A[0];
+    print_int_array(A, size);
+    insertion_sort(A, size);
     return 0;
 }
