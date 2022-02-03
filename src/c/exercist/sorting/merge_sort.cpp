@@ -69,7 +69,6 @@ void merge(int A[], int low, int mid, int high) {
     }
     // echo each step
     print_int_array(A, low, high+1);
-
 }
 
 void merge_sort(int A[], int low, int high) {
@@ -87,8 +86,6 @@ void merge_sort(int A[], int low, int high) {
 int main() {
     int A[] = {3,2,1,5,8,0,7};
     int size = sizeof A / sizeof A[0];
-//    print_int_array(A, size);
     merge_sort(A, 0, size-1);
-//    print_int_array(A, size);
     return 0;
 }
