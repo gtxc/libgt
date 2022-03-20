@@ -1,0 +1,3 @@
+cc -pg -o main main.c
+./main to generate gmon.out file
+gprof main gmon.out
