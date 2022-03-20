@@ -1,0 +1,56 @@
+-- procedure to create shared object:
+
+foo.h
+#ifndef foo_h__
+#define foo_h__
+
+extern void foo(void);
+
+#endif  // foo_h__
+
+
+foo.c
+#include <stdio.h>
+
+void foo(void)
+{
+    puts("Hello, I am a shared library");
+}
+
+
+
+main.c
+#include <stdio.h>
+#include "foo.h"
+
+int main(void)
+{
+    puts("This is a shared library test...");
+    foo();
+    return 0;
+}
+
+gcc -c -Wall -Werror -fpic foo.c
+
+gcc -shared -o libfoo.so foo.o
+
+gcc -Wall -o test main.c -lfoo
+/usr/bin/ld: cannot find -lfoo
+collect2: ld returned 1 exit status
+
+
+gcc -L/home/username/foo -Wall -o test main.c -lfoo
+
+./test
+./test: error while loading shared libraries: libfoo.so: cannot open shared object file: No such file or directory
+
+echo $LD_LIBRARY_PATH
+
+LD_LIBRARY_PATH=/home/username/foo:$LD_LIBRARY_PATH
+./test
+./test: error while loading shared libraries: libfoo.so: cannot open shared object file: No such file or directory
+
+export LD_LIBRARY_PATH=/home/username/foo:$LD_LIBRARY_PATH
+./test
+This is a shared library test...
+Hello, I am a shared library 

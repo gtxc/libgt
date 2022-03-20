@@ -1,0 +1,13 @@
+first generate object file for library
+	cc -c slib.c -o libslib.o
+then generate static library file
+	ar rcs libslib.a libslib.o
+to test static library file
+	ar -t libslib.a
+
+
+after creating driver program, compile it as follows, use -I option to find header file
+	cc -I <path_to_header_file> -c main.c -o main.o
+then link the static library with driver program
+	cc -o main main.o <path_to_.a_file_for_sure>
+ 
